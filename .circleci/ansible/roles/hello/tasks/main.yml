@@ -1,4 +1,4 @@
-- name: "create helloworld text file"
+- name: "create helloworld text file trigger"
   copy:
     content: hello world
     dest: /tmp/helloworld.txt
