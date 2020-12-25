@@ -201,7 +201,7 @@ jobs:
             aws cloudformation deploy \
               --stack-name udapeople-frontend-${CIRCLE_WORKFLOW_ID} \
               --template-file .circleci/files/frontend.yml \
-              --region ${AWS_DEFAULT_REGION} \
+              --region us-west-2 \
               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID}"
       - run:
           name: Create/Update backend infrastructure via AWS CloudFormation
@@ -209,12 +209,12 @@ jobs:
             aws cloudformation deploy \
               --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID} \
               --template-file .circleci/files/backend.yml \
-              --region ${AWS_DEFAULT_REGION} \
+              --region us-west-2 \
               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID}"
       - run:
           name: Get and save public DNS of EC2 instance to https://memstash.io/
           command: |
-            PUBLIC_DNS=$(aws ec2 describe-instances --region ${AWS_DEFAULT_REGION} --filters 'Name=tag:Name,Values=udapeople-backend-ec2-*' --query "Reservations[*].Instances[0].PublicDnsName" --output text)
+            PUBLIC_DNS=$(aws ec2 describe-instances --region us-west-2 --filters 'Name=tag:Name,Values=udapeople-backend-ec2-*' --query "Reservations[*].Instances[0].PublicDnsName" --output text)
             echo ${PUBLIC_DNS}
             curl -H "Content-Type: text/plain" \
                -H "token: ${CIRCLE_WORKFLOW_ID}" \
@@ -341,7 +341,7 @@ jobs:
             aws cloudformation deploy \
               --stack-name udapeople-cloudfront \
               --template-file .circleci/files/cloudfront.yml \
-              --region ${AWS_DEFAULT_REGION} \
+              --region us-west-2 \
               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID}"
             echo "Delete old infrastructure"
             if [ -n "${OLD_CIRCLE_WORKFLOW_ID}" ] && [[ "${STACKS[@]}" =~ "${OLD_CIRCLE_WORKFLOW_ID}" ]]
