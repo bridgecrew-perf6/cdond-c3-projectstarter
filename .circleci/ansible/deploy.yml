@@ -4,7 +4,7 @@
   user: ubuntu
  
   vars:
-    ansible_python_interpreter: /usr/bin/python3
+    ansible_python_interpreter: /usr/bin/python2.7
     host_key_checking: False
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     ansible_user: ec2-user
