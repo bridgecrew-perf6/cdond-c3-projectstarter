@@ -196,7 +196,7 @@ jobs:
       #           aws s3 rb --force s3://$bucket
       #       done
       - run:
-          name: Create/Update frontend infrastructure via AWS CloudFormation
+          name: Create/Update frontend infrastructure via AWS CloudFormation vbn
           command: |
             aws cloudformation deploy \
               --stack-name udapeople-frontend-${CIRCLE_WORKFLOW_ID} \
