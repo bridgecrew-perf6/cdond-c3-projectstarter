@@ -1,6 +1,6 @@
 - name: "install node 12.X"
   shell: |
-    curl -sL http://deb.nodesource.com/setup_12.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     sudo yum -y upgrade
     sudo yum install -y nodejs
 
