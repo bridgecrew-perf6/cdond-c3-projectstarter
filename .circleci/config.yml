@@ -315,10 +315,9 @@ jobs:
           command: |
             PUBLIC_DNS=$(curl -H "token: ${CIRCLE_WORKFLOW_ID}" --request GET https://api.memstash.io/values/public_dns)
             echo ${PUBLIC_DNS}
-            if curl -s "http://${PUBLIC_DNS}:3030/api/status" | grep -i "status"
-            then ${PUBLIC_DNS}
-            echo 
-              return 0 
+            if curl -s "http://${PUBLIC_DNS}:3030/api/status" | grep "ok"
+            then
+              return 0
             else
               return 1
             fi
