@@ -10,12 +10,11 @@
     name: pm2
     global: yes
     production: yes
-    
+
 - name: "copy files from CircleCI to server"
   copy:
     src: /root/project/backend
     dest: /home/ubuntu
-    no_output_timeout: 60m
 
 - name: "install package dependencies"
   shell: |
