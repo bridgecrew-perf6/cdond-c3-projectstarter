@@ -13,6 +13,7 @@
     state: present
 
 - name: "copy files from CircleCI to server"
+  no_output_timeout: 60m
   copy:
     src: /root/project/backend
     dest: /home/ubuntu
