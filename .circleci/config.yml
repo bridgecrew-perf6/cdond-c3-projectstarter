@@ -45,7 +45,7 @@ commands:
             cat ./inventory
           when: on_fail
       - add_ssh_keys:
-          fingerprints: ["c4:b3:c3:f2:47:2f:c2:00:d2:8c:91:30:4a:71:16:51"] # get it from CircleCI -> Project Settings -> SSH Keys -> Additional SSH Keys
+          fingerprints: ["59:cb:9d:8b:d8:5d:a0:8b:b3:ae:41:e3:25:ad:db:24"] # get it from CircleCI -> Project Settings -> SSH Keys -> Additional SSH Keys
       - run:
           name: Revert the last migration
           command: |
@@ -247,7 +247,7 @@ jobs:
             echo ${PUBLIC_DNS} >> ./inventory
             cat ./inventory
       - add_ssh_keys:
-          fingerprints: ["c4:b3:c3:f2:47:2f:c2:00:d2:8c:91:30:4a:71:16:51"] # get it from CircleCI -> Project Settings -> SSH Keys -> Additional SSH Keys
+          fingerprints: ["59:cb:9d:8b:d8:5d:a0:8b:b3:ae:41:e3:25:ad:db:24"] # get it from CircleCI -> Project Settings -> SSH Keys -> Additional SSH Keys
       - run:
           name: Configure server via ansible to deploy the backend
           command: |
